@@ -1,51 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp">
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    >
 
-  <TextView
-      android:id="@+id/textViewTitulos"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="@+id/imageView"
-      app:layout_constraintTop_toTopOf="@+id/imageView"
-      app:layout_constraintVertical_bias="0.0"
-      tools:layout_editor_absoluteX="66dp"
-      tools:text="title" />
 
-  <ImageView
-      android:id="@+id/imageView"
-      android:layout_width="50dp"
-      android:layout_height="50dp"
-      android:layout_marginStart="8dp"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintVertical_bias="0.181" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
 
-  <ImageButton
-      android:id="@+id/btnExcluir"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
 
-      app:layout_constraintBottom_toBottomOf="@+id/imageView"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/imageView"
-      app:layout_constraintVertical_bias="0.0"
-      app:srcCompat="@android:drawable/ic_menu_delete" />
+        <TextView
+            android:id="@+id/textViewTitulos"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat_bold"
+            android:maxLines="1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imageProduto"
+            app:layout_constraintEnd_toStartOf="@id/btnExcluir"
+            app:layout_constraintHorizontal_bias="0.041"
+            app:layout_constraintStart_toEndOf="@id/imageProduto"
+            app:layout_constraintTop_toTopOf="@id/imageProduto"
+            app:layout_constraintVertical_bias="0.098"
+            tools:text="@tools:sample/lorem/random" />
 
-  <TextView
-      android:id="@+id/textViewDescription"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintBottom_toBottomOf="@+id/imageView"
-      app:layout_constraintTop_toTopOf="@+id/imageView"
-      app:layout_constraintVertical_bias="1.0"
-      tools:layout_editor_absoluteX="66dp"
-      tools:text="Description" />
+        <ImageButton
+            android:id="@+id/btnExcluir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/textViewTitulos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textViewTitulos"
+            app:layout_constraintVertical_bias="0.468"
+            app:srcCompat="@android:drawable/ic_menu_delete" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/montserrat"
+            android:maxLines="1"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/btnExcluir"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/imageProduto"
+            app:layout_constraintTop_toBottomOf="@id/textViewTitulos"
+            tools:text="Description" />
+
+        <ImageView
+            android:id="@+id/imageProduto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/produto"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>
