@@ -46,6 +46,7 @@ class AdapterView : Adapter<AdapterView.AdapterViewHolder>() {
     override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
         holder.binding.textViewTitulos.text = list[position].title
         holder.binding.textViewDescription.text = list[position].descricao
+        holder.binding.textViewPreco.text = list[position].preco
 
         holder.binding.btnExcluir.setOnClickListener {
             deletarDado(list[position].id,position)

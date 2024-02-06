@@ -11,10 +11,11 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
     private val reader = DataBaseHelper(context).readableDatabase
 
 
-    override fun inserir(title: String, description: String): Boolean {
+    override fun inserir(title: String, description: String,preco:String): Boolean {
         val content = contentValuesOf(
             DataBaseHelper.TITLE to title,
-            DataBaseHelper.DESCRIPTION to description
+            DataBaseHelper.DESCRIPTION to description,
+            DataBaseHelper.PRECO to preco
         )
         try {
             writer.insert(DataBaseHelper.TABLE_NAME, null, content)
@@ -48,11 +49,13 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
                 val id = query.getColumnIndex(DataBaseHelper.ID)
                 val title = query.getColumnIndex(DataBaseHelper.TITLE)
                 val description = query.getColumnIndex(DataBaseHelper.DESCRIPTION)
+                val preco = query.getColumnIndex(DataBaseHelper.PRECO)
                 list.add(
                     Produtos(
                         query.getInt(id),
                         query.getString(title),
-                        query.getString(description)
+                        query.getString(description),
+                        query.getString(preco)
                     )
                 )
             }

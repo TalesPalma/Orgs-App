@@ -33,8 +33,6 @@ class MainActivity : AppCompatActivity() {
             fabAdicionar.setOnClickListener { telaAdd() }
         }
 
-
-
     }
 
     private fun inicarLista(){

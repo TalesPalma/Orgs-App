@@ -8,15 +8,30 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
+    android:backgroundTint="@color/white"
     >
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:padding="8dp">
 
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/guildline"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            app:layout_constraintGuide_begin="1dp"-->
+<!--            app:layout_constraintGuide_percent="0.01"-->
+<!--            />-->
+
+<!--        <androidx.constraintlayout.widget.Guideline-->
+<!--            android:id="@+id/VerticalGuidLine"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            app:layout_constraintGuide_percent="0.01"-->
+<!--             />-->
 
         <TextView
             android:id="@+id/textViewTitulos"
@@ -73,6 +88,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/textViewPreco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="RS 8"
+            app:layout_constraintStart_toEndOf="@id/imageProduto"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>
