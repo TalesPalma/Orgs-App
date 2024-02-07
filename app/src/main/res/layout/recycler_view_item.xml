@@ -17,25 +17,10 @@
         android:padding="8dp">
 
 
-        <!--        <androidx.constraintlayout.widget.Guideline-->
-        <!--            android:id="@+id/guildline"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal"-->
-        <!--            app:layout_constraintGuide_begin="1dp"-->
-        <!--            app:layout_constraintGuide_percent="0.01"-->
-        <!--            />-->
-
-        <!--        <androidx.constraintlayout.widget.Guideline-->
-        <!--            android:id="@+id/VerticalGuidLine"-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="vertical"-->
-        <!--            app:layout_constraintGuide_percent="0.01"-->
-        <!--             />-->
-
         <TextView
             android:id="@+id/textViewTitulos"
+            app:layout_constraintHeight_percent="1"
+            app:layout_constraintWidth_percent="0.6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
@@ -81,27 +66,24 @@
 
         <ImageView
             android:id="@+id/imageProduto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="127dp"
+            android:layout_height="118dp"
             android:layout_margin="0dp"
             android:scaleType="centerCrop"
             android:src="@drawable/produto"
             app:layout_constraintEnd_toStartOf="@id/textViewTitulos"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"
-            app:layout_constraintWidth_percent="0.3"
-            app:layout_constraintHeight_percent="0.3"
-            />
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
         <TextView
-            app:layout_constraintHeight_percent="0.1"
             android:id="@+id/textViewPreco"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="RS 8"
+            app:layout_constraintHeight_percent="0.1"
             app:layout_constraintStart_toEndOf="@id/imageProduto"
             app:layout_constraintTop_toBottomOf="@id/textViewDescription" />
 

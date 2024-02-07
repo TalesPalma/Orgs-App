@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import coil.load
 import com.talespalma.personaliseseuapp.databinding.RecyclerViewItemBinding
 import com.talespalma.personaliseseuapp.model.DataBaseDAO
 import com.talespalma.personaliseseuapp.model.Produtos
@@ -47,10 +48,11 @@ class AdapterView : Adapter<AdapterView.AdapterViewHolder>() {
         holder.binding.textViewTitulos.text = list[position].title
         holder.binding.textViewDescription.text = list[position].descricao
         holder.binding.textViewPreco.text = list[position].preco
-
+        holder.binding.imageProduto.load("https://4.bp.blogspot.com/-NlasolrjnBs/UEEza8IvtYI/AAAAAAAABAQ/jGwa_MORmAE/s1600/7900982204_506812aa2a_h.jpg")
         holder.binding.btnExcluir.setOnClickListener {
             deletarDado(list[position].id,position)
         }
+
 
     }
 
