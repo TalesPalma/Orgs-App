@@ -11,11 +11,12 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
     private val reader = DataBaseHelper(context).readableDatabase
 
 
-    override fun inserir(title: String, description: String,preco:String): Boolean {
+    override fun inserir(title: String, description: String, preco: String, uri: String): Boolean {
         val content = contentValuesOf(
             DataBaseHelper.TITLE to title,
             DataBaseHelper.DESCRIPTION to description,
-            DataBaseHelper.PRECO to preco
+            DataBaseHelper.PRECO to preco,
+            DataBaseHelper.URI to uri
         )
         try {
             writer.insert(DataBaseHelper.TABLE_NAME, null, content)
@@ -25,6 +26,10 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
             return false
         }
         return true
+    }
+
+    fun limpar() {
+        writer.delete(DataBaseHelper.TABLE_NAME, null, null)
     }
 
     override fun delete(id: Int): Boolean {
@@ -50,12 +55,14 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
                 val title = query.getColumnIndex(DataBaseHelper.TITLE)
                 val description = query.getColumnIndex(DataBaseHelper.DESCRIPTION)
                 val preco = query.getColumnIndex(DataBaseHelper.PRECO)
+                val uri = query.getColumnIndex(DataBaseHelper.URI)
                 list.add(
                     Produtos(
                         query.getInt(id),
                         query.getString(title),
                         query.getString(description),
-                        query.getString(preco)
+                        query.getString(preco),
+                        query.getString(uri)
                     )
                 )
             }
@@ -65,4 +72,24 @@ class DataBaseDAO(val context: Context) : IDataBaseDAO {
         }
         return list.toList()
     }
+
+    fun selectQuery(
+        sql: String = "SELECT uri FROM ${DataBaseHelper.TABLE_NAME}",
+        colum:String = DataBaseHelper.URI
+    ):String{
+        var retorno:String = ""
+        try {
+            val cursor = reader.rawQuery(sql, null)
+            cursor.moveToLast()
+            val index = cursor.getColumnIndex(colum)
+            retorno = cursor.getString(index)
+
+        } catch (e: Exception) {
+            Log.i("info_db", "selectQuery:${e.message} ")
+        }
+
+        return retorno
+    }
+
+
 }

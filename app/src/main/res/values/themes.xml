@@ -1,8 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.PersonaliseSeuApp" parent="Theme.Material3.DayNight">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+       <item name="colorPrimary">#97FB71</item>
+       <item name="colorPrimaryVariant">#1E7100</item>
+       <item name="colorOnPrimary">#080908</item>
+
+       <item name="colorSecondary">#76F446</item>
+       <item name="colorSecondaryVariant">#C6EAB9</item>
+       <item name="colorOnSecondary">#B4F89B</item>
     </style>
 
     <style name="Theme.PersonaliseSeuApp" parent="Base.Theme.PersonaliseSeuApp" />

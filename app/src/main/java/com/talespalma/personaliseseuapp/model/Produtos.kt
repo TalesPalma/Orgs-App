@@ -5,4 +5,5 @@ data class Produtos(
     val title:String,
     val descricao:String,
     val preco:String,
+    val uri :String
 )

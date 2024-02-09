@@ -21,16 +21,23 @@ class MainActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         inicarLista()
+        DataBaseDAO(this).selectQuery()
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+
+
+
+
         with(binding){
             recyclerView.adapter = adapterViewHolder
             recyclerView.layoutManager = LinearLayoutManager(baseContext)
             fabAdicionar.setOnClickListener { telaAdd() }
+            btnLimpar.setOnClickListener { DataBaseDAO(applicationContext).limpar() }
         }
 
     }

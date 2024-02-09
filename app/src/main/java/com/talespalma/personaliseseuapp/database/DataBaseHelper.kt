@@ -16,7 +16,8 @@ class DataBaseHelper(
         const val ID = "id"
         const val TITLE = "title"
         const val DESCRIPTION = "description"
-        const val PRECO = "PRECO"
+        const val PRECO = "preco"
+        const val URI = "uri"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -25,7 +26,8 @@ class DataBaseHelper(
                     "  $ID INTEGER not NULL PRIMARY KEY  AUTOINCREMENT \n" +
                     "  ,$TITLE varchar(50)\n" +
                     "  ,$DESCRIPTION text " +
-                    ",$PRECO varchar(50) )"
+                    ",$PRECO varchar(50) " +
+                    ",$URI varchar(200));"
             db?.execSQL(sql)
             Log.i("info_database","Data base create !!!")
         }catch (e :Exception){

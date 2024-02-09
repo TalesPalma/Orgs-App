@@ -74,6 +74,7 @@
             android:id="@+id/editTextPreco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:hint="Digite o preco do produto" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,6 +89,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5"
-        app:srcCompat="@drawable/produto" />
+        app:srcCompat="@drawable/image_not_found" />
+
+    <TextView
+        android:id="@+id/textIndications"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:text="Clique na imagem para adicionar um foto"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/imageAdd"
+        app:layout_constraintEnd_toEndOf="@id/imageAdd"
+        app:layout_constraintHorizontal_bias="0.802"
+        app:layout_constraintStart_toStartOf="@id/imageAdd" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

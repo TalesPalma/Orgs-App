@@ -1,17 +1,12 @@
 package com.talespalma.personaliseseuapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.ParcelFileDescriptor
-import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.appcompat.app.AlertDialog
-import com.talespalma.personaliseseuapp.R
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import coil.load
 import com.talespalma.personaliseseuapp.databinding.ActivityAdicionarListaBinding
-import com.talespalma.personaliseseuapp.databinding.ActivityMainBinding
-import com.talespalma.personaliseseuapp.model.DataBaseDAO
-import java.text.NumberFormat
-import java.util.Locale
+import com.talespalma.personaliseseuapp.recyclerview.ui.AlertDialogs
+import com.talespalma.personaliseseuapp.tools.CoilTools
 
 class AdicionarListaActivity : AppCompatActivity() {
 
@@ -24,37 +19,25 @@ class AdicionarListaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val alert = AlertDialogs(this, layoutInflater)
 
-        with(binding) {
-            btnAdicionar.setOnClickListener {
-                inserirDataBase(
-                    inputTitle.text.toString(), inputDescription.text.toString(),
-                    editTextPreco.text.toString()
-                )
-                finish()
-            }
-            imageAdd.setOnClickListener {
-                dialogBox()
+        binding.btnAdicionar.setOnClickListener {
+            alert.inserirDataBase(
+                binding.inputTitle.text.toString(),
+                binding.inputDescription.text.toString(),
+                binding.editTextPreco.text.toString()
+            )
+            finish()
+        }
+
+        binding.imageAdd.setOnClickListener {
+            val imageLoader = CoilTools.imageLoadGif(this)
+            alert.BuiderAlerDialogAdd(){
+                binding.imageAdd.load(it,imageLoader)
             }
 
+            binding.textIndications.visibility = View.INVISIBLE
         }
 
     }
-
-    private fun inserirDataBase(title: String, descriptor: String, preco: String) {
-        val formatador = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
-        val precoFormatado = formatador.format(preco.toInt())
-        DataBaseDAO(this).inserir(title, descriptor, precoFormatado)
-    }
-
-    private fun dialogBox(): Unit {
-        val dialogBuider = AlertDialog.Builder(this)
-            .setView(R.layout.formulario_imagem)
-            .setPositiveButton("Confirmar") { _, _ -> }
-            .setNegativeButton("Cancelar") { _, _ -> }
-            .show()
-
-    }
-
-
 }
